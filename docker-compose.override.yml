@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  myapp:
+    container_name: myapp
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dev
+    ports:
+      - "8080:4040"
+    depends_on:
+      - mysql-server-1
+    env_file:
+      - .env
+    volumes:
+      - ./src:/usr/src/app/src
+    networks:
+      - my-network
+
+networks:
+  my-network:
