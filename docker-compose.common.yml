@@ -6,11 +6,8 @@ services:
     image: mysql:latest
     ports:
       - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: demo
-      MYSQL_USER: narayan
-      MYSQL_PASSWORD: Narayan@321
+    env_file:
+      - .env
     volumes:
       - mysql_data:/var/lib/mysql
     networks:

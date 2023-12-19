@@ -35,8 +35,12 @@ app
     try {
       const connection = await pool.getConnection();
 
-      const sql = `INSERT INTO users(name,age) VALUES(?,?)`;
-      await connection.query(sql, [name, age]);
+      const sql = `INSERT INTO users(id,name,age) VALUES(?,?,?)`;
+      await connection.query(sql, [
+        Math.floor(Math.random() * 1000),
+        name,
+        age,
+      ]);
 
       connection.release();
       res.status(200).json({ message: "Data is created" });
@@ -58,10 +62,30 @@ app
     }
   })
   .put("/users", (req: Request, res: Response) => {
-    res.status(200).json({ message: "Data is updated" });
+    try {
+      let sum = 0;
+      for (let i = 0; i < 1e10; i++) {
+        sum += i;
+      }
+      res.status(200).json({ message: sum });
+    } catch (error) {
+      res.status(400).json({ message: "Bad request" });
+    }
   })
-  .delete("/users", (req: Request, res: Response) => {
-    res.status(204).json({ message: "Data is deleted" });
+  .delete("/users/:id", async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+
+      const connection = await pool.getConnection();
+
+      const sql = `DELETE FROM users WHERE id = ?`;
+      const [response] = await connection.query(sql, [id]);
+
+      connection.release();
+      res.status(200).json({ data: response });
+    } catch (error) {
+      res.status(400).json({ message: "Bad request" });
+    }
   });
 
 const port = process.env.PORT || 4040;

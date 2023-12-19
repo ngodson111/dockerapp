@@ -9,8 +9,6 @@ services:
     image: nodeapp:1.0
     ports:
       - "8080:4040"
-    env_file:
-      - .env
     networks:
       - my-network
 
