@@ -6,6 +6,7 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile.dev
+    image: myapp:1.0
     ports:
       - "8080:4040"
     depends_on:
