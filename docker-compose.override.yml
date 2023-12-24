@@ -1,16 +1,16 @@
 version: "3"
 
 services:
-  myapp:
-    container_name: myapp
+  auth-service:
+    container_name: auth-service
     build:
       context: .
       dockerfile: docker/Dockerfile.dev
-    image: myapp:1.0
+    image: auth-service:1.0
     ports:
       - "8080:4040"
     depends_on:
-      - mysql-server-1
+      - auth-sql
     env_file:
       - .env
     volumes:

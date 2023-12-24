@@ -1,8 +1,8 @@
 version: "3"
 
 services:
-  mysql-server-1:
-    container_name: mysql-server-1
+  auth-sql:
+    container_name: auth-sql
     image: mysql:latest
     ports:
       - "3306:3306"

@@ -1,12 +1,14 @@
 version: "3"
 
 services:
-  nodeapp:
-    container_name: nodeapp
+  auth-service:
+    container_name: auth-service
     build:
       context: .
       dockerfile: docker/Dockerfile
-    image: nodeapp:1.0
+    image: auth-service:1.0
+    env_file:
+      - .env
     ports:
       - "8080:4040"
     networks:
