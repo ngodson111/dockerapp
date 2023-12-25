@@ -18,7 +18,7 @@ job("Ecommerce Service"){
             registryCredentials('dockerhub')
             forcePull(false)
             forceTag(false)
-            createFingerprints(hubfalse)
+            createFingerprints(false)
             skipDecorate()
         }
     }
