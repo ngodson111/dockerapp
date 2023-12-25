@@ -1,4 +1,4 @@
-job("Ecommerce Service With Docker & DSL"){
+job("Ecommerce Service"){
     scm {
         git('https://github.com/ngodson111/dockerapp.git') { node -> 
             node / gitConfigName('ngodson')
@@ -15,7 +15,7 @@ job("Ecommerce Service With Docker & DSL"){
         dockerBuildAndPublish {
             repositoryName('ngodson/ecommerce-service')
             tag('${GIT_REVISION,length=9}')
-            registryContainer('dockerhub')
+            registryCredentials('dockerhub')
             forcePull(false)
             forceTag(false)
             createFingerprints(hubfalse)
