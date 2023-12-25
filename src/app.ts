@@ -92,3 +92,6 @@ const port = process.env.PORT || 4040;
 app.listen(port, () => console.log(`Server running on port: ${port}`));
 
 // docker run -d --name mysql-server -e MYSQL_ROOT_PASSWORD=password -e MYSQL_USER=narayan -e MYSQL_PASSWORD=Narayan@321 -p 3306:3306 mysql:latest
+
+//jenkins
+//docker run -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock --name jenkins -d jenkins-docker
