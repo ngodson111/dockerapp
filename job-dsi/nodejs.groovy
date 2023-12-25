@@ -11,7 +11,7 @@ job("Product Service"){
     wrappers {
         nodejs('NodeJS')
     }
-    step {
+    steps {
         shell('npm install')
     }
 }
