@@ -1,7 +1,7 @@
 job("Product Service"){
     scm {
         git('https://github.com/ngodson111/dockerapp.git') { node -> 
-            node / gitConfigName('ngodson')
+            node / gitConfigName('Narayan Neupane')
             node / gitConfigEmail('narannpn@gmail.com')
         }
     }
