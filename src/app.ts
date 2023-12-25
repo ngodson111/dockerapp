@@ -67,7 +67,7 @@ app
       for (let i = 0; i < 1e10; i++) {
         sum += i;
       }
-      res.status(200).json({ message: sum });
+      res.status(200).json({ message: sum, success: true });
     } catch (error) {
       res.status(400).json({ message: "Bad request" });
     }
